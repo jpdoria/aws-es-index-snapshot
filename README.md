@@ -96,7 +96,7 @@ python aws-manual-es-snapshots.py register -r ap-southeast-1 -b my-es-snapshots 
 1. AWS Management Console > Lambda
 1. Create a Lambda function > Blank function
 1. Skip Configure triggers by clicking Next button
-1. Give your function a name and description
+1. Give your function a name and a description
 1. Choose Python 2.7 as Runtime
 1. Code entry type: Upload a .ZIP file, then click Upload
 1. Clone or download the code as zip
@@ -170,5 +170,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-# Reference
-http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html
+# References
+https://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html
+https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-snapshots.html
