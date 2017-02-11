@@ -2,3 +2,7 @@ env
 tags
 aws-es-index-snapshot-lambda/requests*
 aws_es_index_snapshot/libs/__pycache__/*
+build
+dist
+*.egg-info
+
