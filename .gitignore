@@ -1,4 +1,4 @@
 env
 tags
 aws-es-index-snapshot-lambda/requests*
-aws_es_index_snapshot/__pycache__/*
+aws_es_index_snapshot/libs/__pycache__/*
