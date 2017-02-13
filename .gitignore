@@ -1,7 +1,8 @@
 env
 tags
-aws-es-index-snapshot-lambda/requests*
-aws_es_index_snapshot/libs/__pycache__/*
+aws_eis_lambda/requests*
+aws_eis/__pycache__/*
+aws_eis/libs/__pycache__/*
 build
 dist
 *.egg-info
