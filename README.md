@@ -63,32 +63,51 @@ Register snapshot directory and take and restore snapshots of Elasticsearch Serv
 
 Please follow the instructions how to register your snapshot directory with Amazon Elasticsearch Service [here](http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-managedomains.html#es-managedomains-snapshot-registerdirectory).
 
-Alternatively, you can use the `aws-es-index-snapshot.py` script to register.
+Alternatively, you can run `aws_eis register` to register.
 
 #### Example of registration using `aws-es-index-snapshot.py`
 
 ```
-python aws-manual-es-snapshots.py register -r ap-southeast-1 -b my-es-snapshots -i es-iam-role -e search-myesdomain-xxxxxxxxxxxxxxxxxxxxxxxxxx.ap-southeast-1.es.amazonaws.com
+aws_eis register -r ap-southeast-1 -b my-es-snapshots -i es-iam-role -e search-myesdomain-xxxxxxxxxxxxxxxxxxxxxxxxxx.ap-southeast-1.es.amazonaws.com
 ```
 
 ## Local Machine
 
-- [Python 2.7 or Python 3.x](https://www.python.org/downloads/)
-- [Virtualenv](https://virtualenv.pypa.io/en/stable/installation/)
+- [Python 3.6](https://www.python.org/downloads/)
+- [Pip](https://pypi.python.org/pypi/pip)
 
 ## AWS Lambda
 - IAM role using `AWSLambdaVPCAccessExecutionRole` policy
 - Add Lambda's NAT IP to Elasticsearch Service Access Policy
 
-# aws-es-index-snapshot.py
+# aws_eis
 
 ## Local Machine Setup
-1. Clone or download the code as zip
-1. Change directory to `aws-es-index-snapshot`
-1. Create a virtual environment: `virtualenv -p python3.6 env`
-1. Activate the virtual environment: `source env/bin/activate`
-1. Install the required modules: `pip install -r requirements.txt`
-1. Execute the script: `python aws-es-index-snapshot.py --help`
+
+`pip install aws_eis`
+
+## Usage
+
+```
+# aws_eis
+usage: aws_eis [-h] {create,restore,cleanup,register,version} ...
+
+Amazon ES Manual Index Snapshot
+
+positional arguments:
+  {create,restore,cleanup,register,version}
+                        Available commands for this script.
+    create              Create a snapshot of Elasticsearch indices
+    restore             Restore a snapshot of Elasticsearch indices
+    cleanup             Remove indices older than X day(s)
+    register            Create S3 bucket, IAM role, IAM policy then register
+                        the snapshot directory
+    version             Display app version
+
+optional arguments:
+  -h, --help            show this help message and exit
+#
+```
 
 # aws-es-index-snapshot-lambda.py
 
