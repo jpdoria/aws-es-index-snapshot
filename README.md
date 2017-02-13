@@ -65,7 +65,7 @@ Please follow the instructions how to register your snapshot directory with Amaz
 
 Alternatively, you can run `aws_eis register` to register.
 
-#### Example of registration using `aws-es-index-snapshot.py`
+#### Example of registration using `aws_eis register`
 
 ```
 aws_eis register -r ap-southeast-1 -b my-es-snapshots -i es-iam-role -e search-myesdomain-xxxxxxxxxxxxxxxxxxxxxxxxxx.ap-southeast-1.es.amazonaws.com
@@ -109,7 +109,7 @@ optional arguments:
 #
 ```
 
-# aws-es-index-snapshot-lambda.py
+# aws_eis_lambda
 
 ## AWS Lambda Setup
 1. AWS Management Console > Lambda
@@ -119,12 +119,12 @@ optional arguments:
 1. Choose Python 2.7 as Runtime
 1. Code entry type: Upload a .ZIP file, then click Upload
 1. Clone or download the code as zip
-1. Change directory to `aws-es-index-snapshot/aws-es-index-snapshot-lambda`
-1. Upload the `aws-es-index-snapshot-lambda.zip`
+1. Change directory to `aws_eis/aws_eis_lambda`
+1. Upload the `aws_eis_lambda.zip`
 1. Create two environment variables for your Elasticsearch Service domain and retention period (days)
     - Key: ES_ENDPOINT | Value: search-myesdomain-xxxxxxxxxxxxxxxxxxxxxxxxxx.ap-southeast-1.es.amazonaws.com
     - Key: RET_PERIOD | Value: 30
-1. Handler: aws-es-index-snapshot-lambda.lambda_handler
+1. Handler: aws_eis_lambda.lambda_handler
 1. Role: Choose an existing role, then find the role you created
 1. Memory: 128 MB and Timeout: 5 mins
 1. VPC: Select your existing VPC
@@ -137,7 +137,7 @@ optional arguments:
 1. AWS Management Console > CloudWatch
 1. Events > Rules > Create a new rule
 1. Event selector: Schedule, fixed rate of 1 Day
-1. Target: Lambda function, then select your aws-es-index-snapshot-lambda function
+1. Target: Lambda function, then select your aws_eis_lambda function
 1. Click Configure details
 1. Give your rule a name and a description
 1. State should be Enabled
