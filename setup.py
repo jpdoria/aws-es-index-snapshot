@@ -6,7 +6,7 @@ with open('requirements.txt') as file_requirements:
 
 setup(
     name='aws_eis',
-    version='1.0.1',
+    version='1.0.2',
     author='John Paul P. Doria',
     author_email='jp@lazyadm.in',
     description=('Register snapshot directory and take and restore ' +
