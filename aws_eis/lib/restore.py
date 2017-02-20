@@ -42,7 +42,7 @@ def restore(args):
                 print('Restoring {}...'.format(snap_name))
 
                 r = requests.post(
-                    'https://{0}/{1}/{2}/_restore?'
+                    'https://{0}/{1}/{2}/_restore'
                     .format(endpoint, snap_dir, snap_name)
                 )
 
@@ -66,5 +66,6 @@ def restore(args):
                 print('Please register the snapshot directory to ' +
                       'your new Amazon Elasticsearch Service domain ' +
                       'then execute \'restore\' again.')
+                sys.exit(1)
             else:
                 print('Please choose between 1 and 2.')
