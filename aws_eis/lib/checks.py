@@ -1,5 +1,13 @@
 import json
+import sys
 import requests
+
+
+def py_version():
+    if sys.version_info < (3, 0, 0):
+        print(sys.version)
+        print('You must use Python 3.x to run this application.')
+        sys.exit(1)
 
 
 def get_version(endpoint):

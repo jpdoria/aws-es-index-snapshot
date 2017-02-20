@@ -2,11 +2,14 @@
 
 import pkg_resources
 import sys
-from aws_eis.lib import test_con, get_version
+from aws_eis.lib import test_con, get_version, py_version
 from aws_eis.lib import cleanup, create, register, restore, set_args
 
 
 def main():
+    # Check Python version
+    py_version()
+
     parser = set_args()
     args = parser.parse_args()
 
@@ -28,6 +31,8 @@ def main():
     elif args.command == 'register':
         test_con(args.endpoint)
         register(args)
+    elif args.command == 'status':
+        test_con(args.endpoint)
     elif args.command == 'version':
         print(pkg_resources.require('aws_eis')[0].version)
 
