@@ -19,13 +19,14 @@ def get_version(endpoint):
 
 def test_con(endpoint):
     r = requests.get('https://{}'.format(endpoint))
-    es_version = get_version(endpoint)
 
-    if r.status_code == 200:
-        print('ESVersion: {}'.format(es_version))
-        print('Connection: OK')
-        print('Status: {}\n'.format(r.status_code))
-    else:
-        print(json.loads(msg)['Message'])
-        print('Status: {}'.format(status_code))
+    try:
+        es_version = get_version(endpoint)
+    except KeyError:
+        print('Status: {}'.format(r.status_code))
         sys.exit(1)
+    else:
+        if r.status_code == 200:
+            print('ESVersion: {}'.format(es_version))
+            print('Connection: OK')
+            print('Status: {}\n'.format(r.status_code))
