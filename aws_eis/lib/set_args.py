@@ -114,6 +114,22 @@ def set_args():
     )
 
     """
+    Check endpoint status
+    """
+    status = subparsers.add_parser(
+        'status',
+        help='Check endpoint status'
+    )
+
+    status.add_argument(
+        '-e',
+        '--endpoint',
+        help="""Elasticsearch Service endpoint (e.g.,
+             search-<domain>-<random string>.<region>.es.amazonaws.com)""",
+        required=True
+    )
+
+    """
     Display app version
     """
     version = subparsers.add_parser(
